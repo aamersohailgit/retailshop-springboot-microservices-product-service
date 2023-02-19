@@ -2,10 +2,12 @@ package com.aamer.model;
 
 import java.math.BigDecimal;
 
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Transient;
 
 @Entity
 public class Product {
@@ -15,6 +17,10 @@ public class Product {
 	private String name;
 	private String description;
 	private BigDecimal price;
+	
+	@Transient
+	private String CouponCode;
+	
 	public Long getId() {
 		return id;
 	}
@@ -38,6 +44,12 @@ public class Product {
 	}
 	public void setPrice(BigDecimal price) {
 		this.price = price;
+	}
+	public String getCouponCode() {
+		return CouponCode;
+	}
+	public void setCouponCode(String couponCode) {
+		CouponCode = couponCode;
 	}
 	@Override
 	public String toString() {
